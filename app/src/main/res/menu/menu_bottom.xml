@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/id_group">
+
+        <item android:id="@+id/id_home_fragment"
+            android:title="Home"
+            android:enabled="true"
+            android:icon="@drawable/ic_home" />
+
+        <item android:id="@+id/id_nearby_fragment"
+            android:title="Nearby"
+            android:enabled="true"
+            android:icon="@drawable/ic_target" />
+
+        <item android:id="@+id/id_profile_fragment"
+            android:title="Other"
+            android:enabled="true"
+            android:icon="@drawable/ic_ex_circle_person"/>
+
+    </group>
+
+</menu>

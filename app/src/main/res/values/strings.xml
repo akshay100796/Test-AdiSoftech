@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AdiSoftTech</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBXv5KQp5QZY-2j65v7m6G2xRuDvwuZD2M</string>
+    <string name="google_maps_key_new" templateMergeStrategy="preserve" translatable="false">AIzaSyA7untoZhiR5K0FTGhoIFB-E6J-wVdRLpM</string>
+    <string name="google_maps_key_1" templateMergeStrategy="preserve" translatable="false">AIzaSyBmsPLtUerDIP_SM_2AWQdhQa4FrxjY5Bc</string>
+</resources>
+

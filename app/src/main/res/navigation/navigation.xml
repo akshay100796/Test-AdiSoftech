@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/id_home_fragment">
+
+    <fragment
+        android:id="@+id/id_home_fragment"
+        android:name="com.codexdroid.sa_assingment.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/id_nearby_fragment"
+        android:name="com.codexdroid.sa_assingment.ui.fragments.NearbyFragment"
+        android:label="fragment_nearby"
+        tools:layout="@layout/fragment_nearby" >
+        <action
+            android:id="@+id/action_id_nearby_fragment_to_shopDetailsFragment"
+            app:destination="@id/shopDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/id_profile_fragment"
+        android:name="com.codexdroid.sa_assingment.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/shopDetailsFragment"
+        android:name="com.codexdroid.sa_assingment.ui.fragments.ShopDetailsFragment"
+        android:label="ShopDetailsFragment"
+        tools:layout="@layout/fragment_shop_details"
+
+        />
+</navigation>

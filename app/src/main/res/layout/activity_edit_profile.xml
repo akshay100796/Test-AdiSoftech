@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.RegistrationActivity">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/id_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/jura_bold"
+                android:text="Update Your Details"
+                android:layout_gravity="center"
+                android:textColor="@color/color_primary"
+                android:textSize="26sp" />
+
+
+            <EditText
+                android:id="@+id/id_edit_mobile"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_mobile"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:maxLength="10"
+                android:hint="Enter Mobile"
+                android:textColor="@color/color_primary" />
+
+
+            <EditText
+                android:id="@+id/id_edit_name"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_person_in_circle"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Enter Complete Name"
+                android:textColor="@color/color_primary" />
+
+
+            <TextView
+                android:id="@+id/id_text_birth_date"
+                style="@style/fill_hr_wrap_vr"
+                android:text="Select Date Of Birth"
+                android:background="@drawable/drf_mobile_no_back"
+                android:textSize="16sp"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:paddingTop="10dp"
+                android:paddingStart="20dp"
+                android:drawablePadding="16dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_primary"
+                android:fontFamily="@font/jura_bold"
+                app:drawableStartCompat="@drawable/ic_calender" />
+
+
+
+            <EditText
+                android:id="@+id/id_edit_complete_address"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_target_yellow"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Complete Address"
+                android:textColor="@color/color_primary" />
+
+
+
+            <EditText
+                android:id="@+id/id_edit_city"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_target_yellow"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="City"
+                android:textColor="@color/color_primary" />
+
+
+            <EditText
+                android:id="@+id/id_edit_lat_long"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_target_yellow"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Lat-Long"
+                android:textColor="@color/color_primary" />
+
+
+
+
+            <EditText
+                android:id="@+id/id_edit_profession"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_suitcase"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Enter Profession"
+                android:textColor="@color/color_primary" />
+
+            <EditText
+                android:id="@+id/id_edit_income"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_income"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Enter Monthly Income"
+                android:textColor="@color/color_primary" />
+
+
+            <EditText
+                android:id="@+id/id_edit_email"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:hint="Enter Email Id (optional)"
+                android:textColor="@color/color_primary" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/id_button_register"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center|bottom"
+            android:background="@drawable/drf_solid_yellow"
+            android:fontFamily="@font/jura_bold"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_margin="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

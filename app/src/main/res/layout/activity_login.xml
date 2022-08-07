@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.LoginActivity">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            style="@style/fill_hr_wrap_vr"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/id_text_title_1"
+                style="@style/text_secondary_thin"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+
+                />
+
+            <TextView
+                android:id="@+id/id_text_title_2"
+                style="@style/text_secondary_thin"
+                android:layout_gravity="center" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/jura_bold"
+                android:text="Mobile No"
+                android:textColor="@color/color_primary"
+                android:textSize="26sp" />
+
+            <EditText
+                android:id="@+id/id_edit_mobile"
+                style="@style/fill_hr_wrap_vr"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/drf_mobile_no_back"
+                android:digits="0123456789"
+                android:drawableStart="@drawable/ic_mobile"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:paddingStart="16sp"
+                android:paddingEnd="16sp"
+                android:textColor="@color/color_primary" />
+
+
+            <TextView
+                android:id="@+id/id_text_request_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:text="Request OTP"
+                android:enabled="false"
+                android:textColor="@color/color_secondary"
+                android:textSize="16sp" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/id_input_otp"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/jura_bold"
+                android:textColor="@color/color_primary"
+                android:visibility="gone"
+                android:clickable="true"
+                app:cursorColor="@color/color_primary"
+                app:cursorWidth="2dp"
+                app:hideLineWhenFilled="false"
+                app:itemCount="6"
+                app:itemRadius="10dp"
+                app:itemSpacing="10dp"
+                android:inputType="number"
+                app:lineColor="@color/color_primary"
+                app:viewType="rectangle"
+                android:focusable="true" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/id_button_login"
+                android:layout_width="200dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center|bottom"
+                android:background="@drawable/drf_solid_yellow"
+                android:fontFamily="@font/jura_bold"
+                android:text="Login"
+                android:enabled="false"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:layout_marginBottom="30dp"
+                android:textAllCaps="false"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/id_image_plus_circle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_plus_circle_yellow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

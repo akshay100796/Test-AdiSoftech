@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "616276709067",
+    "firebase_url": "https://adisoftech-assignment-default-rtdb.firebaseio.com",
+    "project_id": "adisoftech-assignment",
+    "storage_bucket": "adisoftech-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616276709067:android:cc7a74141d3eaf3142154e",
+        "android_client_info": {
+          "package_name": "com.codexdroid.sa_assingment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616276709067-gbso6k2i1d8crescqlhfdrostejag8qm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW4HTMxiokF2t-dWDKQfI_24EcBKp1q-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616276709067-gbso6k2i1d8crescqlhfdrostejag8qm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
