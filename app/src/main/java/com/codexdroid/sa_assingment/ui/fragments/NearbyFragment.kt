@@ -230,8 +230,11 @@ class NearbyFragment : Fragment() {
         binding.idRecyclerNearbyList.visibility = View.VISIBLE
 
 
-        shopsList?.sortWith(DistanceComparator(LatLong(locationData?.latitude,locationData?.longitude)))
-        //Collections.sort(shopsList!!, DistanceComparator( LatLong(locationData?.latitude,locationData?.longitude)))
+        //shopsList?.sortWith(DistanceComparator(LatLong(locationData?.latitude,locationData?.longitude)))
+
+        Collections.sort(shopsList!!, DistanceComparator( LatLong(locationData?.latitude,locationData?.longitude)))
+
+
 
         ShopsAdapter(shopsList!!, LatLong(locationData?.latitude,locationData?.longitude)).apply {
             binding.idRecyclerNearbyList.adapter = this
@@ -240,7 +243,8 @@ class NearbyFragment : Fragment() {
                 override fun onRecyclerClicked(id: Int?, position: Int?, data: Any?, extraText: String?) {
                     val shopsData = data as ShopDetails
                     //Update last visit shop
-                    databaseReference.child(shopsData.shop_name).child("last_visit").setValue(System.currentTimeMillis())
+                    Log.d("AXE1","Shop Name : ${shopsData.shop_name} || ${toJson(shopsData)}")
+                    databaseReference.child(shopsData.shop_name.trim()).child("last_visit").setValue(System.currentTimeMillis())
                     toDestination.navigateToDestination(position,shopsData)
                 }
             })

@@ -48,7 +48,7 @@
                     style="@style/style_bold_text_20_primary"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Hi...!, Akshay Pawar" />
+                    android:text="Hi...!, [User Name]" />
 
                 <TextView
                     style="@style/style_bold_text_20_primary"

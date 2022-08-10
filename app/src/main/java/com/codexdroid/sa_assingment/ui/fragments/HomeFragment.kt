@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,10 +20,7 @@ import com.codexdroid.sa_assingment.controller.adapters.SelectedMobileAdapter
 import com.codexdroid.sa_assingment.controller.interfaces.RecyclerClickedListener
 import com.codexdroid.sa_assingment.databinding.FragmentHomeBinding
 import com.codexdroid.sa_assingment.databinding.LayoutDialogViewProductBinding
-import com.codexdroid.sa_assingment.models.locals.LatLong
-import com.codexdroid.sa_assingment.models.locals.ShopDetails
-import com.codexdroid.sa_assingment.models.locals.ShopItem
-import com.codexdroid.sa_assingment.models.locals.UserLocationData
+import com.codexdroid.sa_assingment.models.locals.*
 import com.codexdroid.sa_assingment.models.room.TableMobile
 import com.codexdroid.sa_assingment.models.room.ViewModelFactory
 import com.codexdroid.sa_assingment.models.room.ViewModels
@@ -37,9 +35,11 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: ViewModels
-    private var tableMobile : ArrayList<TableMobile>? = null
     private lateinit var prefManager: PrefManager
     private lateinit var userLocationData: UserLocationData
+
+    private var userData: UserRegisterData? = null
+    private var tableMobile : ArrayList<TableMobile>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -55,7 +55,13 @@ class HomeFragment : Fragment() {
 
     private fun initialisation() {
         prefManager = PrefManager(requireContext())
-        userLocationData = prefManager.loadUserLocationData()!!
+        try {
+            userLocationData = prefManager.loadUserLocationData()!!
+        }catch (ex: Exception) {}
+
+        userData = prefManager.loadUserRegisterData()
+
+        binding.idTextName.text = "Hi...!, ${userData?.name}"
 
         lifecycleScope.launch {
             loadMobileData()
@@ -163,10 +169,19 @@ class HomeFragment : Fragment() {
                         //update value,
                         //open order details screen
                         openOrderDialog(mobileData)
-
                     } else {
                         //open order details screen
-
+                        AlertDialog.Builder(requireContext())
+                            .setTitle("Order Already Placed")
+                            .setMessage("Do You Want to Re-Placed this Order?")
+                            .setPositiveButton("YES") { d,_ ->
+                                d.dismiss()
+                                gotoNextScreen(mobileData)
+                            }
+                            .setNegativeButton("NO") {d,_->
+                                d.dismiss()
+                            }
+                            .show()
                     }
                 }
             })
@@ -196,35 +211,54 @@ class HomeFragment : Fragment() {
             this.idDistance.text = "$${getDistance(LatLong(userLocationData.latitude,userLocationData.longitude))} KM Far From You"
             this.idButtonNext.text = "Placed Order"
 
-            val shopItem = ShopItem(
-                mobileData.mobileId.toInt(),mobileData.mobileImage!!,
-                item_name = mobileData.mobileName!!,
-                price = mobileData.mobilePrice?.toDouble()!!,2)
-
-            val shopDetails = ShopDetails(
-                image_qr_code = mobileData.shopImageQR_Code!!,
-                image_url = mobileData.shopImageUrl!!,
-                last_visit = mobileData.lastVisit?.toLong()!!,
-                latitude = mobileData.shopLatitude?.toDouble()!!,
-                longitude = mobileData.shopLongitude?.toDouble()!!,
-                shop_id = mobileData.shopId?.toInt()!!,
-                shop_name = mobileData.shopName!!,
-                shop_items = arrayListOf(shopItem))
+//            val shopItem = ShopItem(
+//                mobileData.mobileId.toInt(),mobileData.mobileImage!!,
+//                item_name = mobileData.mobileName!!,
+//                price = mobileData.mobilePrice?.toDouble()!!,2)
+//
+//            val shopDetails = ShopDetails(
+//                image_qr_code = mobileData.shopImageQR_Code!!,
+//                image_url = mobileData.shopImageUrl!!,
+//                last_visit = mobileData.lastVisit?.toLong()!!,
+//                latitude = mobileData.shopLatitude?.toDouble()!!,
+//                longitude = mobileData.shopLongitude?.toDouble()!!,
+//                shop_id = mobileData.shopId?.toInt()!!,
+//                shop_name = mobileData.shopName!!,
+//                shop_items = arrayListOf(shopItem))
 
 
             this.idButtonNext.setOnClickListener {
                 customDialog.dismiss()
-                Intent(requireActivity(), OrderPlacedActivity::class.java).apply {
-                    putExtra(AppConstants.SHOPS_DATA,shopDetails)
-                    putExtra(AppConstants.ITEM_DATA,shopItem)
-                    startActivity(this)
-                }
+                gotoNextScreen(mobileData)
             }
             this.idButtonCancel.setOnClickListener {
                 customDialog.dismiss()
             }
         }
         customDialog?.show()
+    }
+
+    private fun gotoNextScreen(mobileData: TableMobile) {
+        val shopItem = ShopItem(
+            mobileData.mobileId.toInt(),mobileData.mobileImage!!,
+            item_name = mobileData.mobileName!!,
+            price = mobileData.mobilePrice?.toDouble()!!,2)
+
+        val shopDetails = ShopDetails(
+            image_qr_code = mobileData.shopImageQR_Code!!,
+            image_url = mobileData.shopImageUrl!!,
+            last_visit = mobileData.lastVisit?.toLong()!!,
+            latitude = mobileData.shopLatitude?.toDouble()!!,
+            longitude = mobileData.shopLongitude?.toDouble()!!,
+            shop_id = mobileData.shopId?.toInt()!!,
+            shop_name = mobileData.shopName!!,
+            shop_items = arrayListOf(shopItem))
+
+        Intent(requireActivity(), OrderPlacedActivity::class.java).apply {
+            putExtra(AppConstants.SHOPS_DATA,shopDetails)
+            putExtra(AppConstants.ITEM_DATA,shopItem)
+            startActivity(this)
+        }
 
     }
 }
